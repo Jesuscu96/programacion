@@ -1,0 +1,23 @@
+def c_nombre():
+  global lista
+  for i in range(5):
+    nombres=str(input("introduce un nombre: "))
+    lista.append(nombres)
+def ordenar():
+  global lista
+  lista.sort()
+def imprimir():
+  global lista
+  print(lista)
+lista=[]
+x=str(input("¿Quieres carga la lista de nombres?, responde si o un no "))
+if x=="si":
+  c_nombre()
+j=str(input("¿Quieres ordenar alfabetica?, responde con si o un no"))
+elif j=="si":
+  ordenar()
+f=str(inptut("¿Quieres imprimir la lista?, responde con si o un no"))
+elif f=="si":
+  imprimir()
+else:
+  print("Grascias por participar")
