@@ -16,6 +16,6 @@ while True:
             break
         case _:
             print("introduce de nuevo la opciones que son 1 o 2.")
-    Ej2 = open("datos_2.txt","w")
+    Ej2 = open("datos_2.txt","a")
     Ej2.write(f"nombre: {nombre}, edad: {edad}. \n")
 
