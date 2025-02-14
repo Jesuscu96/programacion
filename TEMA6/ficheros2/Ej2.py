@@ -19,12 +19,14 @@ while True:
                     nombre = str(input("Introduce un nombre: "))
                     tlf = int(input("Introduce el numero de teléfono: "))
                 
-                Ej2.write(f"Nombre: {nombre}, Numero de teléfono: {tlf}. \n")
+                Ej2.write(f"Nombre: {nombre} , Numero de teléfono: {tlf}. \n")
             case "3":
                 if Ej2:
-                    print("Mostrar registros: ")
+                    print("Mostrar datos: ")
                     print(Ej2.read())
-                 
+            case "4:
+                
+            case "5:"
             case "6":
                 print("Fin del programa")
                 Ej2.close()

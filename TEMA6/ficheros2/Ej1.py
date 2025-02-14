@@ -1,4 +1,4 @@
-
+Ej1= open("Temperatura.txt","w" ,encoding = "utf-8")
 
 while True:
     print("\n--- Menú de combate ---")
@@ -17,7 +17,9 @@ while True:
                 fecha = str(input("Introduce la fecha: "))
                 tmax = int(input("Introduce la temperatura maxima: "))
                 tmin = int(input("Introduce la temperatura minima: "))
-                Ej1.write(f"Fecha: {fecha}, Temperatura máxima: {tmax}, Temperatura mínima: {tmin}. \n")
+                Ej1= open("Temperatura.txt","a" ,encoding = "utf-8")
+                Ej1.write(f"Fecha: {fecha},\t Temperatura máxima: {tmax}ºc ,\t Temperatura mínima: {tmin}ºc. \n")
+                
             case "2":
                 if Ej1:
                     print("Mostrar registros: ")
@@ -32,7 +34,7 @@ while True:
                         temperaturaMin = tmin 
                     else:
                         temperaturaMin = tmin
-                        print(f"La tempeeatura mínima es de {temperaturaMin}ºc y la temperatura maxima es de {temperaturaMax}ºc")
+                    print(f"La temperatura mínima es de {temperaturaMin}ºc y la temperatura maxima es de {temperaturaMax}ºc")
             case "3":
                 print("Fin del programa")
                 Ej1.close()
@@ -41,8 +43,7 @@ while True:
                 print("introduce de nuevo la opciones que son 1, 2 o 3.")
         
         
-    except ValueError:
-        print("Has introducido un tipo str en un int")
+    
     except FileNotFoundError:
         print("El archivo no existe.")
     finally:
