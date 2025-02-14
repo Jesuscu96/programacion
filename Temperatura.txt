@@ -1,0 +1,14 @@
+Fecha: 99/99/9999, Temperatura máxima: 15, Temperatura mínima: 21. 
+echa: 23/12/2000, Temperatura máxima: 2, Temperatura mínima: 1. 
+Fecha: 23/12/2000, Temperatura máxima: 2, Temperatura mínima: 1. 
+Fecha: 22/11/2000, Temperatura máxima: 3, Temperatura mínima: 1. 
+Fecha: 24/11/2000, Temperatura máxima: -4, Temperatura mínima: -9. 
+Fecha: 24/11/2000, Temperatura máxima: -4, Temperatura mínima: -9. 
+Fecha: 24/11/2000, Temperatura máxima: -4, Temperatura mínima: -9. 
+Fecha: 22/22/2222, Temperatura máxima: 6, Temperatura mínima: 4. 
+Fecha: 22/22/2222, Temperatura máxima: 6, Temperatura mínima: 4. 
+Fecha: 22/8/2025, Temperatura máxima: 22, Temperatura mínima: 8. 
+Fecha: 22/8/2025, Temperatura máxima: 22, Temperatura mínima: 8. 
+Fecha: 22/8/2025, Temperatura máxima: 22, Temperatura mínima: 8. 
+Fecha: 77/77/7777, Temperatura máxima: 99, Temperatura mínima: -77. 
+Fecha: 88/88/8888, Temperatura máxima: 88, Temperatura mínima: -88. 
