@@ -4,4 +4,4 @@ from abc import ABC, abstractmethod
 class Habilidades(ABC):
     @abstractmethod
     def habilidad_especial(self):
-        pass
+        pass 
