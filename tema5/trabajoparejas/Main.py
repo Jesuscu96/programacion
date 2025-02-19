@@ -99,6 +99,7 @@ while True:
             # Finalizar el juego
             print("Saliendo del juego...")
             break
+        
 
         case _:
             # En caso de error
