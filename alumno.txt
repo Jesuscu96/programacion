@@ -1,0 +1,6 @@
+Nombre:
+Apellidos:
+Dirección:
+Telefono:
+Sexo:
+Becado:
