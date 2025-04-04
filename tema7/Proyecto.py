@@ -5,9 +5,12 @@ import sys
 class Aplicacion:
     def __init__(self):
         self.ventana1=tk.Tk()
-        self.ventana1.title("Ejercicio Menu")
-        self.ventana1.geometry("550x500")
+        self.ventana1.title("Registro de juegos")
+        self.ventana1.geometry("650x700")
+        self.ventana1.minsize(400, 500)
+        self.ventana1.maxsize(1024, 768)
         self.registronote=ttk.Notebook(self.ventana1)
+        self.ventana1.configure(bg="black")
 
         menubar1 = tk.Menu(self.ventana1)
         self.ventana1.config(menu=menubar1)

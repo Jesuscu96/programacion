@@ -1,0 +1,9 @@
+Nombre:wfe
+Apellido:wdwd
+Direccion:wed
+Telefono:wd
+Sexo:masculino
+Becado:True
+Hobbys:
+Pais:España
+Edad:51
