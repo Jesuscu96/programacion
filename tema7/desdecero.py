@@ -140,11 +140,7 @@ class Aplicacion:
         self.etiquetas1.insert(7,"Ruso")
         
     
-        #Creacion del Frame
-        
-           
-        #self.frame_lista = tk.Frame(self.ventana1, bg="gray25")
-        #self.frame_lista.grid(column=1, row=6, pady=(40, 10), padx=(10, 60))
+       
          
         
         self.ventana1.mainloop()       

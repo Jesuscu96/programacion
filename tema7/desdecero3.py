@@ -19,16 +19,27 @@ class Aplicacion:
         self.ventana1.configure(bg="gray25")
         
         style = ttk.Style()
-        style.theme_use("default")
+        style.theme_use("default") # depende del sistema pude dar error una default o clam
         style.configure("TFrame", background="gray25")
         style.configure("TLabel", foreground="white", font=("Arial", 12, "bold"))
         style.configure("TNotebook", background="gray25", borderwidth=0)
-        style.configure("TNotebook.Tab", background="gray15", foreground="white", font=("Arial", 12))
+        style.configure("TNotebook.Tab", background="gray15", foreground="white", font=("Arial", 14))
         style.map("TNotebook.Tab", background=[("selected", "#333333")], foreground=[("selected", "cyan")])
         
+        #Creacion de un menu de opciones
         
+        
+        menubar1 = tk.Menu(self.ventana1)
+        self.ventana1.config(menu=menubar1)
+        opciones1=tk.Menu(menubar1)
+        opciones1.add_command(label="Guardar", command=self.menuguardar)
+        opciones1.add_command(label="Abrir", command=self.menuabrir)
+        opciones1.add_command(label="Salir", command=self.menusalir)
+        menubar1.add_cascade(label="Archivo", menu=opciones1)
         
         #Creacion del notebook
+        
+        
         self.cuaderno1 = ttk.Notebook(self.ventana1)
         self.cuaderno1.pack(expand=True, fill="both")
             ###Todos los Entry, Text Box y FRAME 1### 
@@ -43,45 +54,46 @@ class Aplicacion:
         self.pagina3 = ttk.Frame(self.cuaderno1, style="TFrame")
         self.cuaderno1.add(self.pagina3, text="Pagina 3")
         
+        '''    ### Proximo y FRAME 4###
+        self.pagin4 = ttk.Frame(self.cuaderno1, style="TFrame")
+        self.cuaderno1.add(self.pagina4, text="Pagina 4")'''
         
-        
-            
         
         #Creacion de Entry o Cuadrados de texto
         
         
         self.titulo_var = tk.StringVar() #Contructor str
         self.entry_titulo=tk.Entry( self.pagina1, textvariable = self.titulo_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center")
-        self.entry_titulo.grid(column=1, row=0, pady=10, padx=(10, 50)) 
+        self.entry_titulo.grid(column=1, row=0, pady=10, padx=(10, 190)) 
         
         #Asignamos la posicion del Entry
         
         self.desarrolladora_var = tk.StringVar()
         self.entry_desarrolladora=tk.Entry(self.pagina1, textvariable=self.desarrolladora_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center" )
-        self.entry_desarrolladora.grid(column=1, row=1, pady=10, padx=(10, 50))
+        self.entry_desarrolladora.grid(column=1, row=1, pady=10, padx=(10, 190))
         
         self.editor_var = tk.StringVar()
         self.entry_editor=tk.Entry(self.pagina1, textvariable=self.editor_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center")
-        self.entry_editor.grid(column=1, row=2, pady=10, padx=(10, 50))
+        self.entry_editor.grid(column=1, row=2, pady=10, padx=(10, 190))
         
         self.fechaSalida_var=tk.StringVar()
         self.entry_fechaSalida=tk.Entry(self.pagina1, textvariable=self.fechaSalida_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center")
-        self.entry_fechaSalida.grid(column=1, row=3, pady=10, padx=(10, 50))
+        self.entry_fechaSalida.grid(column=1, row=3, pady=10, padx=(10, 190))
         
         #Creacion Label Textos mostrados por pantalla
         
         
         
-        self.label_titulo=tk.Label(self.pagina1, text="Titulo", font=("Arial", 12, "bold"), fg="white", bg="gray25")
+        self.label_titulo=tk.Label(self.pagina1, text="Titulo:", font=("Arial", 12, "bold"), fg="white", bg="gray25")
         self.label_titulo.grid(column=0, row=0, pady=(10, 10), padx=(10, 50))
         
-        self.label_desarrolladora=tk.Label(self.pagina1, text="Desarrolladora", font=("Arial", 12, "bold"), fg="white", bg="gray25")
-        self.label_desarrolladora.grid(column=0, row=1, pady=10, padx=(10, 10))
+        self.label_desarrolladora=tk.Label(self.pagina1, text="Desarrolladora:", font=("Arial", 12, "bold"), fg="white", bg="gray25")
+        self.label_desarrolladora.grid(column=0, row=1, pady=10, padx=(10, 50))
         
-        self.label_editor=tk.Label(self.pagina1, text="Editor", font=("Arial", 12, "bold"), fg="white", bg="gray25")
+        self.label_editor=tk.Label(self.pagina1, text="Editor:", font=("Arial", 12, "bold"), fg="white", bg="gray25")
         self.label_editor.grid(column=0, row=2, pady=10, padx=(10, 50))
         
-        self.label_fechaSalida=tk.Label(self.pagina1, text="Titulo", font=("Arial", 12, "bold"), fg="white", bg="gray25")
+        self.label_fechaSalida=tk.Label(self.pagina1, text="Fecha salida:", font=("Arial", 12, "bold"), fg="white", bg="gray25")
         self.label_fechaSalida.grid(column=0, row=3, pady=10, padx=(10, 50))
         
         self.text_box=tk.Label(self.pagina1, text="Breve descripcion del juego", font=("Arial", 12, "bold"), fg="white", bg="gray25")
@@ -100,7 +112,13 @@ class Aplicacion:
         self.label_check_plataformas.grid(column=0, row=0, pady=(22, 15), padx=(40, 50))
         
         self.label_reseñas=tk.Label(self.pagina3, text="Reseñas de los jugadores:", font=("Arial", 12, "bold"), fg="white", bg="gray25")
-        self.label_reseñas.grid(column=0, row=1, pady=(70, 15), padx=(40, 50))
+        self.label_reseñas.grid(column=0, row=1, pady=(70, 15), padx=(22, 0))
+        
+        self.label_precio=tk.Label(self.pagina3, text="Precio del juego en €:", font=("Arial", 12, "bold"), fg="white", bg="gray25")
+        self.label_precio.grid(column=0, row=5, pady=(15, 15), padx=(22, 0))
+        
+        self.label_pegi=tk.Label(self.pagina3, text="Clasificacion PEGI:", font=("Arial", 12, "bold"), fg="white", bg="gray25")
+        self.label_pegi.grid(column=0, row=6, pady=(15, 15), padx=(22, 0))
         
         #Creacion del textBox
         
@@ -222,7 +240,7 @@ class Aplicacion:
         self.reseñas = tk.IntVar()
         self.reseñas.set(2)
         self.frame_resenas = tk.Frame(self.pagina3, bg="gray25")
-        self.frame_resenas.grid(column=1, row=1, pady=(15, 10), padx=(10, 70), rowspan=4)
+        self.frame_resenas.grid(column=1, row=1, pady=(15, 10), padx=(1, 90), rowspan=4)
 
         self.radio1 = tk.Radiobutton(self.frame_resenas, text="Muy positivas", bg="gray25", fg="white", selectcolor="black", font=("Arial", 12, "bold"), variable=self.reseñas, value=1)
         self.radio1.pack(anchor="w", pady=(5, 5))
@@ -235,8 +253,115 @@ class Aplicacion:
 
         self.radio4 = tk.Radiobutton(self.frame_resenas, text="Muy negativas", bg="gray25", fg="white", selectcolor="black", font=("Arial", 12, "bold"), variable=self.reseñas, value=4)
         self.radio4.pack(anchor="w", pady=(5, 5))
-       
+            
+        #Creacion de el Spinbox PRECIO
+        
+        
+        self.precio = ttk.Spinbox(self.pagina3, from_=0, to=500, increment=0.5, width=10, font=("Arial", 12))
+        self.precio.grid(column=1, row=5, pady=(10, 10), padx=(10, 110))
+            
+        #Creacion de el Combobox PEGI
+        
+        
+        self.pegi_lista = ["+3", "+7", "+12", "+16", "+18"]
+        self.pegi = ttk.Combobox(self.pagina3, values=self.pegi_lista, state="readonly", width=10, font=("Arial", 12))
+        self.pegi.grid(column=1, row=6, pady=(10, 10), padx=(10, 110))
+        self.pegi.current(0)
+        
          
         
-        self.ventana1.mainloop()       
+        self.ventana1.mainloop()
+        
+##########COPIADO DE EL EJERCICIO 2##########
+    def abrirdialogo(self):
+        self.curso=tk.Toplevel(self.ventana1)
+        self.curso.title("Matriculacion")
+        self.curso.geometry("250x200")
+        self.labelcurso1=tk.Label(self.curso, text="Elegir ciclo: ")
+        self.labelcurso1.grid(column=0, row=0)
+        self.notecomboboxciclo=tk.StringVar()
+        selectcurso=("DAW", "SMR")
+        self.notecombobox1=ttk.Combobox(self.curso, width=10, textvariable=self.notecomboboxciclo, values=selectcurso, state='readonly')
+        self.notecombobox1.grid(column=1,row=0)
+ 
+        self.labelcurso2=tk.Label(self.curso, text="Elegir curso: ")
+        self.labelcurso2.grid(column=0, row=1)
+        self.notecomboboxcurso=tk.StringVar()
+        selectcurso=("Primero", "Segundo")
+        self.notecombobox2=ttk.Combobox(self.curso, width=10, textvariable=self.notecomboboxcurso, values=selectcurso, state='readonly')
+        self.notecombobox2.grid(column=1,row=1)
+
+        self.confirmar=tk.Button(self.curso, text="Confirmar", command=self.notebook)
+        self.confirmar.grid(column=0, row=4)
+    def menuguardar(self):
+        campos = [
+        self.dato_nombre.get(),
+        self.dato_apellido.get(),
+        self.dato_direccion.get(),
+        self.dato_telefono.get(),
+        self.select_sexo.get(),
+        self.pais.get(),
+        self.spinbox1.get(),
+    ]
+        if any(not campo for campo in campos):
+            mb.showerror("Error", "Todos los campos deben ser completados")
+            return
+        
+        datos={
+            "Nombre": self.dato_nombre.get(),
+            "Apellido": self.dato_apellido.get(),
+            "Direccion": self.dato_direccion.get(),
+            "Telefono": self.dato_telefono.get(),
+            "Sexo": self.select_sexo.get(),
+            "Becado": self.select_becado.get(),
+            "Hobbys": [self.list_hobbys.get(i)for i in self.list_hobbys.curselection()],  
+#recorre la lita grafica y recoge lo que hay marcado con el curselection
+            "Pais":self.pais.get(),
+            "Edad":self.spinbox1.get(),
+        }
+        with open("alumn.txt","w") as archivo:
+            for clave,valor in datos.items():
+                if isinstance(valor,list):  #Transformador de cadena de texto
+                    valor=",".join(valor)
+                archivo.write(f"{clave}:{valor}\n")
+        print("Guardado los datos correctamente.")
+        self.abrirdialogo()
+
+    def menuabrir(self):
+        with open("alumn.txt","r") as archivo:
+            lines=archivo.readlines()
+            if not lines:
+                print("Archivo vacio")
+            for line in lines:
+                clave,valor = line.strip().split(":",1)
+                if clave== "Nombre":
+                    self.dato_nombre.set(valor)
+                elif clave=="Apellido":
+                    self.dato_apellido.set(valor)
+                elif clave=="Direccion":
+                    self.dato_direccion.set(valor)
+                elif clave=="Telefono":
+                    self.dato_telefono.set(valor)
+                elif clave=="Sexo":
+                    self.select_sexo.set(valor)
+                elif clave=="Becado":
+                    self.select_becado.set(valor)
+                elif clave=="Hobbys":
+                    hobbys=valor.split(",") if valor else []
+                    self.list_hobbys.select_clear(0,tk.END)  #tk.END hasta el ultimo elemento de la lista
+                    for i in range(self.list_hobbys.size()):  #size recorre toda la lista
+                        if self.list_hobbys.get(i) in hobbys:
+                            self.list_hobbys.select_set(i)
+                elif clave=="Pais":
+                    self.pais.set(valor)
+                elif clave=="Edad":
+                    self.spinbox1.set(valor)
+
+    def menusalir(self):
+        respuesta=mb.askyesno("Advertencia", "¿Estas seguro que deseas salir?")
+        if respuesta:
+            sys.exit(0)
+        else:
+            print("Cancelado, la ventana sigue abierta.")
+    
 aplicacion1=Aplicacion()
