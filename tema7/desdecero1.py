@@ -18,60 +18,68 @@ class Aplicacion:
         self.registronote=ttk.Notebook(self.ventana1)
         self.ventana1.configure(bg="gray25")
         
+        #Creacion del notebook
+        self.cuaderno1 = ttk.Notebook(self.ventana1)
+            #Entry y FRAME 1
+        self.pagina1 = ttk.Frame(self.cuaderno1)
+        self.cuaderno1.add(self.pagina1, text="Pagina 1")
+        
         #Creacion de Entry o Cuadrados de texto
         
         
         self.titulo_var = tk.StringVar() #Contructor str
-        self.entry_titulo=tk.Entry( self.ventana1, textvariable = self.titulo_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center")
-        self.entry_titulo.grid(column=1, row=1, pady=(80, 10), padx=(10, 50)) #Asignamos la posicion del Entry
+        self.entry_titulo=tk.Entry( self.pagina1, textvariable = self.titulo_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center")
+        self.entry_titulo.grid(column=1, row=0, pady=10, padx=(10, 50)) 
+        
+        #Asignamos la posicion del Entry
         
         self.desarolladora_var = tk.StringVar()
-        self.entry_desarolladora=tk.Entry(self.ventana1, textvariable=self.desarolladora_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center" )
-        self.entry_desarolladora.grid(column=1, row=2, pady=10, padx=(10, 50))
+        self.entry_desarolladora=tk.Entry(self.pagina1, textvariable=self.desarolladora_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center" )
+        self.entry_desarolladora.grid(column=1, row=1, pady=10, padx=(10, 50))
         
         self.editor_var = tk.StringVar()
-        self.entry_editor=tk.Entry(self.ventana1, textvariable=self.editor_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center")
-        self.entry_editor.grid(column=1, row=3, pady=10, padx=(10, 50))
+        self.entry_editor=tk.Entry(self.pagina1, textvariable=self.editor_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center")
+        self.entry_editor.grid(column=1, row=2, pady=10, padx=(10, 50))
         
         self.fechaSalida_var=tk.StringVar()
-        self.entry_fechaSalida=tk.Entry(textvariable=self.fechaSalida_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center")
-        self.entry_fechaSalida.grid(column=1, row=4, pady=10, padx=(10, 50))
+        self.entry_fechaSalida=tk.Entry(self.pagina1, textvariable=self.fechaSalida_var, width=25, font=("Arial", 12,), fg="white", bg="black", insertbackground="white", justify="center")
+        self.entry_fechaSalida.grid(column=1, row=3, pady=10, padx=(10, 50))
         
         #Creacion Label Textos mostrados por pantalla
         
         
         
         self.label_titulo=tk.Label(self.ventana1, text="Titulo", font=("Arial", 12, "bold"), fg="white", bg="gray25")
-        self.label_titulo.grid(column=0, row=1, pady=(80, 10), padx=(10, 50))
+        self.label_titulo.grid(column=0, row=0, pady=(10, 10), padx=(10, 50))
         
         self.label_desarolladora=tk.Label(self.ventana1, text="Desarolladora", font=("Arial", 12, "bold"), fg="white", bg="gray25")
-        self.label_desarolladora.grid(column=0, row=2, pady=10, padx=(10, 50))
+        self.label_desarolladora.grid(column=0, row=1, pady=10, padx=(10, 10))
         
         self.label_editor=tk.Label(self.ventana1, text="Editor", font=("Arial", 12, "bold"), fg="white", bg="gray25")
-        self.label_editor.grid(column=0, row=3, pady=10, padx=(10, 50))
+        self.label_editor.grid(column=0, row=2, pady=10, padx=(10, 50))
         
         self.label_fechaSalida=tk.Label(self.ventana1, text="Titulo", font=("Arial", 12, "bold"), fg="white", bg="gray25")
-        self.label_fechaSalida.grid(column=0, row=4, pady=10, padx=(10, 50))
+        self.label_fechaSalida.grid(column=0, row=3, pady=10, padx=(10, 50))
         
         self.text_box=tk.Label(self.ventana1, text="Breve descripcion del juego", font=("Arial", 12, "bold"), fg="white", bg="gray25")
-        self.text_box.grid(column=2, row=0, pady=(40, 10), padx=(40, 50))
+        self.text_box.grid(column=0, row=5, pady=(40, 10), padx=(40, 50))
         
         self.label_etiquetas=tk.Label(self.ventana1,text="Etiquetas del juego:", font=("Arial", 12, "bold"), fg="white", bg="gray25")
-        self.label_etiquetas.grid(column=0, row=6, pady=(40, 10), padx=(40, 50))
+        self.label_etiquetas.grid(column=2, row=0, pady=(40, 10), padx=(40, 50))
         self.label_etiquetas1=tk.Label(self.ventana1,text="Idiomas del juego:", font=("Arial", 12, "bold"), fg="white", bg="gray25")
-        self.label_etiquetas1.grid(column=2, row=6, pady=(40, 10), padx=(40, 50))
+        self.label_etiquetas1.grid(column=2, row=2, pady=(40, 10), padx=(40, 50))
         
         #Creacion del textBox
         
         
         self.text_box=tk.Text(self.ventana1, width=40, height=10, font=("Arial", 12), fg="white", bg="black", insertbackground="white")
-        self.text_box.grid(column=3, row=0, pady=(40, 10), padx=(10, 60))
+        self.text_box.grid(column=1, row=5, pady=(40, 10), padx=(10, 60))
             
         #Creacion del Frame
         
            
         self.frame_lista = tk.Frame(self.ventana1, bg="gray25")
-        self.frame_lista.grid(column=1, row=6, pady=(40, 10), padx=(10, 60))
+        self.frame_lista.grid(column=3, row=0, pady=(40, 10), padx=(10, 60))
         
         #Creacion de la listbox JUEGOS
         
@@ -124,7 +132,7 @@ class Aplicacion:
         
         
         self.etiquetas1=tk.Listbox(self.ventana1, selectmode=tk.MULTIPLE)
-        self.etiquetas1.grid(column=3, row=6, pady=(40, 10), padx=(10, 0))
+        self.etiquetas1.grid(column=3, row=2, pady=(15, 10), padx=(5, 0))
         
         
        
