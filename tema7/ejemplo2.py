@@ -187,7 +187,7 @@ class Aplicacion:
                     self.spinbox1.set(valor)
 
     def menusalir(self):
-        respuesta=mb.askyesno("Advertencia", "Â¿EstÃ¡s seguro que deseas salir?")
+        respuesta=mb.askyesno("Advertencia", "¿Estas seguro que deseas salir?")
         if respuesta:
             sys.exit(0)
         else:

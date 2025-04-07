@@ -11,6 +11,7 @@ class Aplicacion:
         self.ventana1.maxsize(1024, 768)
         self.registronote=ttk.Notebook(self.ventana1)
         self.ventana1.configure(bg="black")
+        
 
         menubar1 = tk.Menu(self.ventana1)
         self.ventana1.config(menu=menubar1)
@@ -25,6 +26,7 @@ class Aplicacion:
         self.registronote.add(self.registronoteframe,text="Registro")
         self.label1=tk.Label(self.registronoteframe, text="Registro de Alumno")
         self.label1.grid(column=0,row=0)
+        
 
         self.label2=tk.Label(self.registronoteframe,text="Nombre:")
         self.label2.grid(column=0, row=1)
@@ -190,7 +192,7 @@ class Aplicacion:
                     self.spinbox1.set(valor)
 
     def menusalir(self):
-        respuesta=mb.askyesno("Advertencia", "Â¿EstÃ¡s seguro que deseas salir?")
+        respuesta=mb.askyesno("Advertencia", "¿Estas seguro que deseas salir?")
         if respuesta:
             sys.exit(0)
         else:
