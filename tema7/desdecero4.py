@@ -294,7 +294,7 @@ class Aplicacion:
                 elif clave=="Hobbys":
                     hobbys=valor.split(",") if valor else []
                     self.list_hobbys.select_clear(0,tk.END)  #tk.END hasta el ultimo elemento de la lista
-                    for i in range(self.list_hobbys.size()):  #size recorre toda la lista
+                    for i in range(self.list_hobbys.size():  #size recorre toda la lista
                         if self.list_hobbys.get(i) in hobbys:
                             self.list_hobbys.select_set(i)
                 elif clave=="Pais":
@@ -310,30 +310,62 @@ class Aplicacion:
                 archivo.write(f"Desarroladora: " + self.entry_desarrolladora.get() + "\n")
                 archivo.write(f"Editor: " + self.entry_editor.get() + "\n")
                 archivo.write(f"Fecha de salida: " + self.entry_fechaSalida.get() + "\n")
-                archivo.write(f"Descripcion: " + self.text_box.get(tk.END) + "\n")
-                selection = self.etiquetas.get(self.etiquetas.curselection)
-                archivo.write(f"Etiquetas del juego: " + selection + "\n")
-                selection1 = self.etiquetas1.get(self.etiquetas1.curselection)
-                archivo.write(f"Idiomas del juego: " + selection1 + "\n")
-                archivo.write(f"Adaptacion del idioma: " + self.estado.get() + "\n")
-                archivo.write(f"Plataforma de salida: " + self.estados.get() + "\n")
-                archivo.write(f"Reseñas: " + self.reseñas.get() + "\n")
+                archivo.write(f"Descripcion: " + self.text_box.get("1.0", tk.END).strip() + "\n")
+                
+                # Obtener etiquetas seleccionadas
+                selection = [self.etiquetas.get(i) for i in self.etiquetas.curselection()]
+                etiquetas_texto = ", ".join(selection) if selection else "Ninguna"
+                archivo.write(f"Etiquetas del juego: " + etiquetas_texto + "\n")
+                
+                # Obtener idiomas seleccionados
+                selection1 = [self.etiquetas1.get(i) for i in self.etiquetas1.curselection()]
+                idiomas_texto = ", ".join(selection1) if selection1 else "Ninguno"
+                archivo.write(f"Idiomas del juego: " + idiomas_texto + "\n")
+                
+                # Adaptación del idioma (Checkbuttons seleccionados)
+                adaptacion_nombres = ["Interfaz", "Subtítulos", "Audio"]
+                adaptacion_seleccionada = [adaptacion_nombres[i] for i, estado in enumerate(self.idiomas_estado) if estado.get()]
+                adaptacion_texto = ", ".join(adaptacion_seleccionada) if adaptacion_seleccionada else "Ninguna"
+                archivo.write(f"Adaptacion del idioma: " + adaptacion_texto + "\n")
+                
+                # Obtener plataformas seleccionadas
+                plataformas_nombres = ["PS5", "PS4", "Xbox Series X", "Xbox ONE", "PC", "Nintendo Switch 1", "Nintendo Switch 2"]
+                plataformas_seleccionadas = [plataformas_nombres[i] for i, estado in enumerate(self.plataformas) if estado.get()]
+                archivo.write(f"Plataforma de salida: " + ", ".join(plataformas_seleccionadas) + "\n")
+                
+                archivo.write(f"Reseñas: " + str(self.reseñas.get()) + "\n")
                 archivo.write(f"Precio: " + self.precio.get() + "\n")
                 archivo.write(f"PEGI: " + self.pegi.get() + "\n")
-        else : 
+        else:
             with open("registro.txt", "w", encoding="utf-8") as archivo:
                 archivo.write(f"Titulo: " + self.entry_titulo.get() + "\n")
                 archivo.write(f"Desarroladora: " + self.entry_desarrolladora.get() + "\n")
                 archivo.write(f"Editor: " + self.entry_editor.get() + "\n")
                 archivo.write(f"Fecha de salida: " + self.entry_fechaSalida.get() + "\n")
-                archivo.write(f"Descripcion: " + self.text_box.get(tk.END) + "\n")
-                selection = self.etiquetas.get(self.etiquetas.curselection)
-                archivo.write(f"Etiquetas del juego: " + selection + "\n")
-                selection1 = self.etiquetas1.get(self.etiquetas1.curselection)
-                archivo.write(f"Idiomas del juego: " + selection1 + "\n")
-                archivo.write(f"Adaptacion del idioma: " + self.estado.get() + "\n")
-                archivo.write(f"Plataforma de salida: " + self.estados.get() + "\n")
-                archivo.write(f"Reseñas: " + self.reseñas.get() + "\n")
+                archivo.write(f"Descripcion: " + self.text_box.get("1.0", tk.END).strip() + "\n")
+                
+                # Obtener etiquetas seleccionadas
+                selection = [self.etiquetas.get(i) for i in self.etiquetas.curselection()]
+                etiquetas_texto = ", ".join(selection) if selection else "Ninguna"
+                archivo.write(f"Etiquetas del juego: " + etiquetas_texto + "\n")
+                
+                # Obtener idiomas seleccionados
+                selection1 = [self.etiquetas1.get(i) for i in self.etiquetas1.curselection()]
+                idiomas_texto = ", ".join(selection1) if selection1 else "Ninguno"
+                archivo.write(f"Idiomas del juego: " + idiomas_texto + "\n")
+                
+                # Adaptación del idioma (Checkbuttons seleccionados)
+                adaptacion_nombres = ["Interfaz", "Subtítulos", "Audio"]
+                adaptacion_seleccionada = [adaptacion_nombres[i] for i, estado in enumerate(self.idiomas_estado) if estado.get()]
+                adaptacion_texto = ", ".join(adaptacion_seleccionada) if adaptacion_seleccionada else "Ninguna"
+                archivo.write(f"Adaptacion del idioma: " + adaptacion_texto + "\n")
+                
+                # Obtener plataformas seleccionadas
+                plataformas_nombres = ["PS5", "PS4", "Xbox Series X", "Xbox ONE", "PC", "Nintendo Switch 1", "Nintendo Switch 2"]
+                plataformas_seleccionadas = [plataformas_nombres[i] for i, estado in enumerate(self.plataformas) if estado.get()]
+                archivo.write(f"Plataforma de salida: " + ", ".join(plataformas_seleccionadas) + "\n")
+                
+                archivo.write(f"Reseñas: " + str(self.reseñas.get()) + "\n")
                 archivo.write(f"Precio: " + self.precio.get() + "\n")
                 archivo.write(f"PEGI: " + self.pegi.get() + "\n")
             
