@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter import messagebox as mb
 import sys
 import os
+from ttkbootstrap import BootstrapStyle
 
 #FORMATO DE TEXTO font=("Arial", 12,), fg="white", bg="grey25" 
 
