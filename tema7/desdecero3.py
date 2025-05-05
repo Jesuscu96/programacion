@@ -279,8 +279,9 @@ class Aplicacion:
                 print("Archivo vacio")
             for line in lines:
                 clave,valor = line.strip().split(":",1)
-                if clave== "Nombre":
-                    self.dato_nombre.set(valor)
+                if clave== "Titulo":
+                    self.entry_titulo.set(valor)
+                
                 elif clave=="Apellido":
                     self.dato_apellido.set(valor)
                 elif clave=="Direccion":

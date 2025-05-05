@@ -3,7 +3,6 @@ from tkinter import ttk
 from tkinter import messagebox as mb
 import sys
 import os
-from ttkbootstrap import BootstrapStyle
 
 #FORMATO DE TEXTO font=("Arial", 12,), fg="white", bg="grey25" 
 
@@ -33,7 +32,7 @@ class Aplicacion:
         
         menubar1 = tk.Menu(self.ventana1)
         self.ventana1.config(menu=menubar1)
-        opciones1=tk.Menu(menubar1)
+        opciones1=tk.Menu(menubar1, tearoff=0)
         opciones1.add_command(label="Guardar", command=self.save)
         opciones1.add_command(label="Abrir", )
         opciones1.add_command(label="Salir", command=self.menusalir)
@@ -306,9 +305,7 @@ class Aplicacion:
         archivo.write(f"Idiomas del juego: " + idiomas_texto + "\n")
         
         # Obtener adaptacion de los idiomas
-        adaptacion_texto = ", ".join(
-            self.plataformas_nombres[i] for i, adaptacion in enumerate(self.idiomas_estado) if adaptacion.get()
-        )
+        adaptacion_texto = ", ".join(self.plataformas_nombres[i] for i, adaptacion in enumerate(self.idiomas_estado) if adaptacion.get())
         adaptacion_texto = adaptacion_texto if plataformas_texto else "Ninguna"
         archivo.write(f"Plataformas seleccionadas: " + plataformas_texto + "\n")
         
